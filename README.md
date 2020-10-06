@@ -15,3 +15,25 @@ module:
   imports:
     - path: github.com/peaceiris/hugo-mod-mermaidjs
 ```
+
+In a Hugo template file.
+
+```html
+{{ $js := resources.Get "mod/mermaidjs/mermaid.min.js" }}
+{{ $secureJS := $js | resources.Fingerprint "sha512" }}
+<script src="{{ $secureJS.Permalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
+<script>
+  var config = {
+    startOnLoad: true,
+    flowchart: {
+      useMaxWidth: true,
+      htmlLabels: true,
+      curve: "cardinal",
+    },
+    theme: "neutral",
+    securityLevel: "strict",
+  };
+
+  mermaid.initialize(config);
+</script>
+```
