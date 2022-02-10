@@ -8,13 +8,16 @@
 
 ## Usage
 
-`config/_default/config.yaml`
+To enable this module you must add the following parameters to your `config/_default/config.yaml`:
 
 ```yaml
 module:
   imports:
     - path: github.com/peaceiris/hugo-mod-mermaidjs
 ```
+
+If this is the first time you are using Hugo modules you need to prepare your setup by installing Go, initializing your modules and more. Please refer to the [official Hugo Documentation](https://gohugo.io/hugo-modules/use-modules/) to complete these steps.
+
 
 In a Hugo template file.
 
